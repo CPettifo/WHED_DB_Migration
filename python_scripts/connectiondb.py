@@ -87,7 +87,7 @@ def main():
                 print("\nWhat would you like to do?")
                 print("1. Create tables")
                 print("2. Data migration")
-                print("3. Foreign key relations")
+                print("3. Foreign key relations (not implemented yet)")
                 print("4. DB validation tests (not implemented yet)")
                 print("5. Exit")
             

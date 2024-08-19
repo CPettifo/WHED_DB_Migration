@@ -1,5 +1,5 @@
 import mysql.connector
-import mysql.connector 
+
 
 def execute_sql_file(connection, file_path):
     results = []
