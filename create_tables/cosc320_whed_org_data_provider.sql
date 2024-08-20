@@ -1,0 +1,21 @@
+CREATE TABLE IF NOT EXISTS cosc320_whed_org_data_provider (
+    org_id INT UNSIGNED NOT NULL,
+    contact_type TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    name VARCHAR(100),
+    email VARCHAR(100),
+    email_copy VARCHAR(100),
+    status BOOLEAN NOT NULL DEFAULT FALSE,
+    flag BOOLEAN NOT NULL DEFAULT FALSE,
+    control_code VARCHAR(32) NOT NULL DEFAULT '',
+    date_sent DATETIME,
+    date_deadline DATETIME,
+    date_accessed DATETIME,
+    date_modified DATETIME,
+    date_reminder DATETIME,
+    date_returned DATETIME,
+    date_validated DATETIME,
+    reminder_count TINYINT UNSIGNED NOT NULL DEFAULT 0,
+    reminder_history LONGTEXT,
+    PRIMARY KEY (org_id),
+    INDEX(control_code)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 ROW_FORMAT=DYNAMIC;

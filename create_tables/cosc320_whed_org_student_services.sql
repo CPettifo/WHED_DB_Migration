@@ -1,0 +1,20 @@
+CREATE TABLE IF NOT EXISTS cosc320_whed_org_student_services (
+    org_id INT UNSIGNED NOT NULL,
+    has_academic_counselling BOOLEAN DEFAULT FALSE,
+    has_social_counselling BOOLEAN DEFAULT FALSE,
+    has_careers_advice BOOLEAN DEFAULT FALSE,
+    has_nursery_care BOOLEAN DEFAULT FALSE,
+    has_cultural_activities BOOLEAN DEFAULT FALSE,
+    has_sports_facilities BOOLEAN DEFAULT FALSE,
+    has_language_laboratory BOOLEAN DEFAULT FALSE,
+    has_disabled_facilities BOOLEAN DEFAULT FALSE,
+    has_health_services BOOLEAN DEFAULT FALSE,
+    has_canteen BOOLEAN DEFAULT FALSE,
+    has_library BOOLEAN DEFAULT FALSE,
+    has_e_library BOOLEAN DEFAULT FALSE,
+    has_residential_facilities BOOLEAN DEFAULT FALSE,
+    has_it_centre BOOLEAN DEFAULT FALSE,
+    has_foreign_studies_centre BOOLEAN DEFAULT FALSE,
+    has_online_distance_learning BOOLEAN DEFAULT FALSE,
+    PRIMARY KEY (org_id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 ROW_FORMAT=DYNAMIC;
