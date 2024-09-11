@@ -14,4 +14,4 @@ CREATE TABLE cosc320_whed_org_audit_log (
     record_history TEXT NOT NULL,
     -- The user Id in the old table can be NULL
     user_id mediumint unsigned NOT NULL
-);
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 ROW_FORMAT=DYNAMIC;
