@@ -1,0 +1,25 @@
+CREATE TABLE cosc320_whed_cred (
+    cred_id MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT,
+    state_id MEDIUMINT UNSIGNED DEFAULT NULL,
+    cred VARCHAR(120) NOT NULL,
+    acronym VARCHAR(20) DEFAULT NULL,
+    cred_cat_code_1 CHAR(2) DEFAULT NULL,
+    cred_cat_code_2 CHAR(2) DEFAULT NULL,
+    cred_level_code CHAR(2) DEFAULT NULL,
+    description TEXT,
+    alternative_qualification TEXT,
+    entry_exam_national INT DEFAULT NULL,
+    entry_exam_inst INT DEFAULT NULL,
+    major_update_date DATETIME DEFAULT NULL,
+    minor_update_date DATETIME DEFAULT NULL,
+    major_update_date_dp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    record_history TEXT NOT NULL,
+    user_id MEDIUMINT UNSIGNED DEFAULT NULL,
+    is_warning BOOLEAN NOT NULL DEFAULT FALSE,
+    is_deleted BOOLEAN NOT NULL DEFAULT FALSE,
+    PRIMARY KEY (cred_id),
+    KEY cred_level_code (cred_level_code),
+    KEY state_id (state_id),
+    KEY user_id (user_id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 ROW_FORMAT=DYNAMIC;
+
