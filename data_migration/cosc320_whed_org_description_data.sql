@@ -1,6 +1,7 @@
 INSERT INTO cosc320_whed_org_description (
     org_id, 
     history, 
+    other_sites_info,  
     admission_requirements, 
     academic_year, 
     languages_used, 
@@ -14,6 +15,7 @@ INSERT INTO cosc320_whed_org_description (
 SELECT 
     OrgID, 
     iHistory, 
+    iOtherSites,  
     iAdmissionRequirements, 
     iAcademicYear, 
     iLanguagesUsed, 

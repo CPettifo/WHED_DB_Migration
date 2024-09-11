@@ -8,9 +8,9 @@ INSERT INTO cosc320_whed_org_student_statistics (
 SELECT 
     OrgID, 
     CASE
-        WHEN iStaffStatisticsYear REGEXP '^[0-9]{4}$' THEN iStaffStatisticsYear
-        ELSE '0000'
-    END AS statistics_year,
+        WHEN iStudentStatisticsYear REGEXP '^[0-9]{4}$' THEN iStudentStatisticsYear
+        ELSE 1901
+    END AS student_statistics_year,
     iStudentStatisticsApprox != 0,
     iStudentTotal, iStudentMale, iStudentFemale,
     iStudentForeignTotal, iStudentForeignMale, iStudentForeignFemale,
