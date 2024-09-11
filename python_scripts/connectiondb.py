@@ -75,11 +75,11 @@ def get_mysql_connection():
 def main():
     connection = get_mysql_connection()
     task_folders = {
-                '1': 'create_tables',
-                '2': 'data_migration',
-                '3': 'foreign_key_relations',
-                '4': 'db_validation_tests'
-            }
+        '1': 'create_tables',
+        '2': 'data_migration',
+        '3': 'foreign_key_relations',
+        '4': 'db_validation_tests'
+    }
     if connection:
         try:
             print("Connected to the database in main")
@@ -102,12 +102,38 @@ def main():
             
                 task_folder = task_folders[choice]
             
-                file_name = input("Enter specific file name (or press Enter to run all .sql files): ").strip()
-            
                 if choice == '3' or choice == '4':
                     print("These are not implemented yet.")
                 else:
-                    execute_task(connection, task_folder, file_name if file_name else None)
+                    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+                    task_dir = os.path.join(base_dir, task_folder)
+                    sql_files = [f for f in os.listdir(task_dir) if f.endswith('.sql')]
+                    
+                    if not sql_files:
+                        print(f"The folder '{task_folder}' is empty or contains no SQL files.")
+                        continue
+                    
+                    while True:
+                        print(f"\nAvailable SQL files in {task_folder}:")
+                        for i, file in enumerate(sql_files):
+                            print(f"{i + 1}. {file}")
+                        print("0. Return to main menu")
+                        print("E. Exit program")
+                    
+                        file_choice = input(f"Enter file number (0-{len(sql_files)}) or 'E' to exit: ").strip().lower()
+                    
+                        if file_choice == '0':
+                            break  # Return to main menu
+                        elif file_choice == 'e':
+                            return  # Exit the program
+                        elif file_choice.isdigit():
+                            file_index = int(file_choice) - 1
+                            if 0 <= file_index < len(sql_files):
+                                execute_task(connection, task_folder, file_index)
+                            else:
+                                print("Invalid file number.")
+                        else:
+                            print("Invalid input. Please enter a number or 'E'.")
         finally:
             connection.close()
             print("MySQL connection is closed")
