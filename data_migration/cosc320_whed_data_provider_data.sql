@@ -1,24 +1,21 @@
-INSERT INTO cosc320_whed_org_data_provider (
-    org_id, contact_type, name, email, email_copy, status, flag,
-    control_code, date_sent, date_deadline, date_accessed, date_modified,
-    date_reminder, date_returned, date_validated, reminder_count, reminder_history
+INSERT INTO cosc320_whed_data_provider (
+    provider_id, state_id, dp_type_contact, dp_org_name, dp_name, dp_street,
+    dp_city, dp_province, dp_post_code, dp_email, dp_email_copy,
+    dp_status, dp_flag, dp_control, date_sent, date_deadline,
+    date_accessed, date_modified, date_reminder, date_returned,
+    date_validated, reminder_count, reminder_history
 )
-SELECT 
-    OrgID, 
-    DPTypeContact, 
-    DPName, 
-    DPEMail, 
-    DPEMailCopie, 
-    DPStatus != 0, 
-    DPFlag != 0,
-    DPControle,
-    CASE WHEN DPDateEnvoi = 0 THEN NULL ELSE FROM_UNIXTIME(DPDateEnvoi) END,
-    CASE WHEN DPDateLimite = 0 THEN NULL ELSE FROM_UNIXTIME(DPDateLimite) END,
-    CASE WHEN DPDateAcces = 0 THEN NULL ELSE FROM_UNIXTIME(DPDateAcces) END,
-    CASE WHEN DPDateModif = 0 THEN NULL ELSE FROM_UNIXTIME(DPDateModif) END,
-    CASE WHEN DPDateRelance = 0 THEN NULL ELSE FROM_UNIXTIME(DPDateRelance) END,
-    CASE WHEN DPDateRetour = 0 THEN NULL ELSE FROM_UNIXTIME(DPDateRetour) END,
-    CASE WHEN DPDateValid = 0 THEN NULL ELSE FROM_UNIXTIME(DPDateValid) END,
+SELECT
+    ProvID, StateID, DPTypeContact, DPOrgName, DPName, DPStreet,
+    DPCity, DPProvince, DPPostCode, DPEMail, DPEMailCopie,
+    DPStatus, DPFlag, DPControle,
+    FROM_UNIXTIME(NULLIF(DPDateEnvoi, 0)),
+    FROM_UNIXTIME(NULLIF(DPDateLimite, 0)),
+    FROM_UNIXTIME(NULLIF(DPDateAcces, 0)),
+    FROM_UNIXTIME(NULLIF(DPDateModif, 0)),
+    FROM_UNIXTIME(NULLIF(DPDateRelance, 0)),
+    FROM_UNIXTIME(NULLIF(DPDateRetour, 0)),
+    FROM_UNIXTIME(NULLIF(DPDateValid, 0)),
     DPNbrRelance,
     DPHistRelance
-FROM whed_org;
+FROM whed_data_provider;
