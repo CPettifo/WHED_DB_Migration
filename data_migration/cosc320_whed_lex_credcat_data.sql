@@ -1,0 +1,3 @@
+INSERT INTO cosc320_whed_lex_credcat(credential_category_code, credential_category_name)
+SELECT CredCatCode, CredCat
+FROM whed_lex_credcat;
