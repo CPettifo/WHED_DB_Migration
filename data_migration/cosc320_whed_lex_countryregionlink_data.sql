@@ -1,0 +1,3 @@
+INSERT INTO cosc320_whed_lex_country_region_link (country_code, region_code)
+SELECT CountryCode, RegionCode
+FROM whed_lex_countryregionlink;
