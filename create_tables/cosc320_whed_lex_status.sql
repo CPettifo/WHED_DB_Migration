@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS cosc320_whed_lex_status (
+  status_code TINYINT NOT NULL,
+  status VARCHAR(60) NOT NULL,
+  aide TEXT,
+  PRIMARY KEY (status_code)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 ROW_FORMAT=DYNAMIC;
