@@ -1,0 +1,21 @@
+CREATE TABLE IF NOT EXISTS cosc320_whed_state (
+  state_id MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  country_name VARCHAR(40) NOT NULL,
+  state_name VARCHAR(50) NOT NULL DEFAULT '',
+  country_code CHAR(2) NOT NULL,
+  state_code CHAR(2) NOT NULL DEFAULT '00',
+  state_alpha CHAR(2) NOT NULL DEFAULT '00',
+  proxy_state_id MEDIUMINT UNSIGNED,
+  is_palgrave BOOLEAN NOT NULL DEFAULT TRUE,
+  use_country_creds BOOLEAN NOT NULL DEFAULT FALSE,
+  ed_sys_locked BOOLEAN NOT NULL DEFAULT FALSE,
+  inst_locked BOOLEAN NOT NULL DEFAULT FALSE,
+  is_stub BOOLEAN NOT NULL DEFAULT FALSE,
+  cred_locked BOOLEAN NOT NULL DEFAULT FALSE,
+  iso3_code CHAR(3),
+  PRIMARY KEY (state_id),
+  UNIQUE KEY uk_country_state (country_code, state_code, state_id),
+  INDEX idx_country_code (country_code),
+  INDEX idx_proxy_state_id (proxy_state_id),
+  INDEX idx_state_code (state_code)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 ROW_FORMAT=DYNAMIC;
