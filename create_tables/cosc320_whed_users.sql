@@ -34,4 +34,4 @@ CREATE TABLE IF NOT EXISTS cosc320_whed_users (
     UNIQUE INDEX idx_username (username),
     INDEX idx_email (email),
     INDEX idx_status (status)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 ROW_FORMAT=DYNAMIC;
