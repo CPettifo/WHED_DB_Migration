@@ -1,6 +1,6 @@
 # Database Migration Tool
 
-This command-line tool facilitates database migration tasks for MySQL databases. It allows users to select and execute specific migration scripts through an interactive interface.
+This command-line tool facilitates database migration tasks for MySQL databases. It allows users to select and execute specific migration scripts through an interactive interface. A prefix of 'cosc320' to indicate the university project in front of the table names. For detailed information about schema changes, please review the Gap Analysis Document of this project.
 
 ## Installation
 
@@ -20,13 +20,14 @@ This command-line tool facilitates database migration tasks for MySQL databases.
 
 1. Create a `.env` file in the root directory of the project.
 2. Add your database credentials to the `.env` file:
-   `   DB_HOST=db_host,
-DB_PORT=db_port,
-DB_NAME=db_name,
-DB_USER=db_user,
-DB_PASSWORD=db_password,
-SSL_CA_PATH=ssl_ca_path,`
-   Download the SSL Certificate from this web page: https://learn.microsoft.com/en-us/azure/mysql/flexible-server/how-to-connect-tls-ssl
+   DB_HOST=db_host,
+   DB_PORT=db_port,
+   DB_NAME=db_name,
+   DB_USER=db_user,
+   DB_PASSWORD=db_password,
+   SSL_CA_PATH=ssl_ca_path,
+
+Download the SSL Certificate from this web page: https://learn.microsoft.com/en-us/azure/mysql/flexible-server/how-to-connect-tls-ssl
 
 ## Usage
 
